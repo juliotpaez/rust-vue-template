@@ -75,7 +75,7 @@ async fn parse_client_message(_connection_id: &str, msg: Message, context_ref: &
         Ok(v) => v,
         Err(e) => {
             error!("Error while parsing message: {}", e);
-            let _ = send_ws_message(WsError::new_no_id_string(WsErrorId::IncorrectInput, e.to_string()), context_ref).await;
+            let _ = send_ws_message(WsMessage::Error(WsError::new_no_id_string(WsErrorId::IncorrectInput, e.to_string())), context_ref).await;
             return;
         }
     };
@@ -112,8 +112,8 @@ async fn parse_client_message(_connection_id: &str, msg: Message, context_ref: &
                 error!("Error while sending response: {}", e)
             }
         }
-        WsMessage::Notification(request) => {
-            match request.method {
+        WsMessage::Notification(notification) => {
+            match notification.method {
                 WsNotificationMethod::AskMe(text) => {
                     let connection_id = Arc::new(Uuid::new_v4().to_hyphenated().to_string());
                     match send_ws_request(WsRequest::new(connection_id, WsRequestMethod::Echo(text)), context_ref).await {

@@ -121,36 +121,36 @@ pub enum WsErrorId {
 }
 
 impl WsError {
-    pub fn new(id: Arc<String>, eid: WsErrorId, message: Arc<String>) -> WsMessage {
-        WsMessage::Error(WsError {
+    pub fn new(id: Arc<String>, eid: WsErrorId, message: Arc<String>) -> WsError {
+        WsError {
             id: Some(id),
             eid,
             message,
-        })
+        }
     }
 
-    pub fn new_no_id(eid: WsErrorId, message: Arc<String>) -> WsMessage {
-        WsMessage::Error(WsError {
+    pub fn new_no_id(eid: WsErrorId, message: Arc<String>) -> WsError {
+        WsError {
             id: None,
             eid,
             message,
-        })
+        }
     }
 
-    pub fn new_string(id: Arc<String>, eid: WsErrorId, message: String) -> WsMessage {
-        WsMessage::Error(WsError {
+    pub fn new_string(id: Arc<String>, eid: WsErrorId, message: String) -> WsError {
+        WsError {
             id: Some(id),
             eid,
             message: Arc::new(message),
-        })
+        }
     }
 
-    pub fn new_no_id_string(eid: WsErrorId, message: String) -> WsMessage {
-        WsMessage::Error(WsError {
+    pub fn new_no_id_string(eid: WsErrorId, message: String) -> WsError {
+        WsError {
             id: None,
             eid,
             message: Arc::new(message),
-        })
+        }
     }
 }
 
