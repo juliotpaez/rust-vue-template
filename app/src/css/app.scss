@@ -1,0 +1,144 @@
+@import "quasar.variables";
+
+$own-max-settings-width: 960px;
+$own-header-height: 33px;
+$own-footer-height: 24px;
+
+.circle-borders {
+  border-radius: 9999px;
+}
+
+.text-no-decoration {
+  text-decoration: none;
+}
+
+.text-no-transform {
+  text-transform: none;
+}
+
+.bg-dark-page {
+  background-color: $dark-page;
+}
+
+code,
+.text-code {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.user-select-node {
+  user-select: none;
+}
+
+.move-cursor {
+  cursor: move;
+}
+
+.grab-cursor {
+  cursor: grab;
+}
+
+.grabbing-cursor {
+  cursor: grabbing;
+}
+
+.crosshair-cursor {
+  cursor: crosshair;
+}
+
+.auto-cursor {
+  cursor: auto !important;
+}
+
+.pointer-cursor {
+  cursor: auto !important;
+}
+
+.no-pointer-events-but-children {
+  pointer-events: none;
+}
+
+.no-pointer-events-but-children * {
+  pointer-events: auto;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.own-content-center {
+  max-width: $own-max-settings-width;
+}
+
+.own-content-height {
+  height: calc(100% - 1px - 40px);
+}
+
+.own-height-without-footer {
+  height: calc(100vh - #{$own-footer-height});
+}
+
+.own-max-height-without-footer {
+  max-height: calc(100vh - #{$own-footer-height});
+}
+
+.own-height-without-header-footer {
+  height: calc(100vh - #{$own-footer-height} - #{$own-header-height});
+}
+
+.own-max-height-without-header-footer {
+  max-height: calc(100vh - #{$own-footer-height} - #{$own-header-height});
+}
+
+// FIX breadcrumbs
+.q-breadcrumbs.no-wrap {
+  width: max-content;
+}
+
+.q-breadcrumbs.no-wrap > div {
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+// FIX tree
+.q-tree__arrow {
+  font-size: 10px;
+}
+
+// FIX input
+.q-field__native,
+.q-field__control {
+  height: 100% !important;
+  min-height: unset !important;
+}
+
+.q-field__native {
+  padding: 0;
+}
+
+.q-field__append,
+.q-field__prepend {
+  height: 100% !important;
+}
+
+// FIX table
+.q-table__container.with-scroll .q-table__grid-content {
+  height: 100%;
+  overflow: auto;
+}
+
+// FIX item
+.q-item__section--side > .q-icon {
+  font-size: 16px;
+}
+
+.q-item__section--avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+}
+
+.q-item__label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
